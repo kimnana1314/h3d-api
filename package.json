@@ -1,0 +1,13 @@
+{
+  "name": "h3d-api",
+  "type":"module",
+  "version": "1.0.0",
+  "description": "haih14dev",
+  "main": "src/server.js",
+  "author": "hai14dev",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
