@@ -1,6 +1,6 @@
 {
   "name": "h3d-api",
-  "type":"module",
+  "type": "module",
   "version": "1.0.0",
   "description": "haih14dev",
   "main": "src/server.js",
@@ -8,6 +8,16 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@babel/runtime": "^7.26.0",
     "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^5.0.2",
+    "@babel/node": "^7.26.0",
+    "@babel/cli": "^7.25.9",
+    "@babel/core": "^7.26.0",
+    "@babel/eslint-parser": "^7.25.9",
+    "@babel/plugin-transform-runtime": "^7.25.9",
+    "@babel/preset-env": "^7.26.0"
   }
 }
