@@ -14,13 +14,9 @@ const createNew=async (req,res,next)=>{
    
   })
   try{
-    console.log(req.body)
     await correctConditinon.validateAsync(req.body,{abortEarly:false})
-    // next()
-    res.status(StatusCodes.CREATED).json({message:'Post: API create new list'})
-
+    next()
   } catch (e) {
-    console.log(e)
     res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({
       errors: new Error(e).message
     })
