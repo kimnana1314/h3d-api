@@ -1,23 +1,35 @@
 {
   "name": "h3d-api",
-  "type": "module",
   "version": "1.0.0",
   "description": "haih14dev",
   "main": "src/server.js",
   "author": "hai14dev",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "lint": "eslint src --ext js --report-unused-disable-directives --max-warnings 0",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel ./src -d ./build/src",
+    "build": "npm run clean && npm run build-babel",
+    "production": "npm run build && node ./build/src/server.js",
+    "dev": "nodemon --exec babel-node ./src/server.js"
+  },
   "dependencies": {
     "@babel/runtime": "^7.26.0",
-    "express": "^4.21.1"
+    "async-exit-hook": "^2.0.1",
+    "express": "^4.21.1",
+    "http-status-codes": "^2.3.0",
+    "joi": "^17.13.3",
+    "mssql": "^11.0.1"
   },
   "devDependencies": {
-    "babel-plugin-module-resolver": "^5.0.2",
-    "@babel/node": "^7.26.0",
     "@babel/cli": "^7.25.9",
     "@babel/core": "^7.26.0",
     "@babel/eslint-parser": "^7.25.9",
+    "@babel/node": "^7.26.0",
     "@babel/plugin-transform-runtime": "^7.25.9",
-    "@babel/preset-env": "^7.26.0"
+    "@babel/preset-env": "^7.26.0",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "dotenv": "^16.4.7"
   }
 }
