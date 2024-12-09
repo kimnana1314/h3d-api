@@ -8,5 +8,7 @@ export const env = {
   TOKEN_LIFE:process.env.TOKEN_LIFE,
   EMAIL_PASS:process.env.EMAIL_PASS,
   HOST_NAME:process.env.HOST_NAME,
-  PORT:process.env.PORT
+  PORT:process.env.PORT,
+
+  BUILD_MODE:process.env.BUILD_MODE
 }

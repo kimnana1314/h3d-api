@@ -11,8 +11,12 @@ const  sqlConfig = {
   },
   port: 1433
 }
-
+let CONNECT_DB =null
 export const dbConnect=async()=>{
-  return await sql.connect(sqlConfig)
+    CONNECT_DB=await sql.connect(sqlConfig)
 }
  
+export const GET_DB=()=>{
+  if (!CONNECT_DB) throw new Error('Kêt nối database trươc')
+    return CONNECT_DB
+}

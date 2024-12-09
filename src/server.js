@@ -1,11 +1,9 @@
 import express from 'express'
-import { dbConnect } from '~/config/dbConnect'
+import { dbConnect,GET_DB } from '~/config/dbConnect'
 import { env } from '~/config/environment'
 
 import { errorHandlingMiddleware } from '~/middlewares/errorHandlingMiddleware'
 import { APIs_V1 } from '~/routes/index'
-
-let DB_CONNECT=null
 const START_SERVER=()=>{
   const app =express()
   app.use(express.json())
@@ -21,7 +19,7 @@ const START_SERVER=()=>{
   try
   {
     console.log('1. Connecting to db server')
-    DB_CONNECT=await dbConnect()
+    await dbConnect()
     console.log('2. Connected to db server')
     START_SERVER()
   } catch (e) {
