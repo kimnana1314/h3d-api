@@ -1,4 +1,6 @@
 import express from 'express'
+import cors from 'cors'
+import { corsOptions } from '~/config/cors'
 import { dbConnect,GET_DB } from '~/config/dbConnect'
 import { env } from '~/config/environment'
 
@@ -6,6 +8,9 @@ import { errorHandlingMiddleware } from '~/middlewares/errorHandlingMiddleware'
 import { APIs_V1 } from '~/routes/index'
 const START_SERVER=()=>{
   const app =express()
+
+  app.use(cors(corsOptions))
+
   app.use(express.json())
   app.use('/v1',APIs_V1)
   // Middlewares xử lý lỗi tập trung

@@ -3,14 +3,14 @@ import { StatusCodes } from 'http-status-codes'
 import ApiError from '~/utils/ApiError'
 const createNew=async (req,res,next)=>{
   const correctConditinon= Joi.object({
-    title:Joi.string().required().min(3).max(50).trim().strict().messages({
+    UnitName:Joi.string().required().min(1).max(30).trim().strict().messages({
       'any.required':'Phải nhập dữ liệu',
       'string.empty':'Dữ liệu không được để trống',
-      'string.min':'Độ dài tối thiếu là 3 ký tự',
-      'string.max':'Độ dài tối đa là 50 ký tự',
+      'string.min':'Độ dài tối thiếu là 1 ký tự',
+      'string.max':'Độ dài tối đa là 30 ký tự',
       'string.trim':'Không được có khoảng trống ở đầu và cuối',
     }),
-    description:Joi.string().required().min(3).max(250).trim().strict()
+    Status:Joi.boolean().required()
    
   })
   try{
@@ -21,6 +21,6 @@ const createNew=async (req,res,next)=>{
   }
 }
 
-export const listValidation={
+export const unitValidation={
   createNew
 }
